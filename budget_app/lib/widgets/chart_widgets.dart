@@ -144,6 +144,9 @@ class MonthlyLineChart extends StatelessWidget {
       final expense = item['expense'] as double;
       return [max, income, expense].reduce((a, b) => a > b ? a : b);
     });
+    
+    // Ensure interval is never 0
+    final horizontalInterval = maxValue > 0 ? maxValue / 4 : 1.0;
 
     return Column(
       children: [
@@ -154,7 +157,7 @@ class MonthlyLineChart extends StatelessWidget {
               gridData: FlGridData(
                 show: true,
                 drawVerticalLine: false,
-                horizontalInterval: maxValue / 4,
+                horizontalInterval: horizontalInterval,
                 getDrawingHorizontalLine: (value) {
                   return FlLine(
                     color: Colors.white.withOpacity(0.1),

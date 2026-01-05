@@ -8,6 +8,7 @@ import 'config/supabase_config.dart';
 import 'theme/app_theme.dart';
 import 'providers/auth_provider.dart';
 import 'providers/transaction_provider.dart';
+import 'providers/settings_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/transactions_screen.dart';
@@ -49,6 +50,7 @@ class BudgetApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => TransactionProvider()),
+        ChangeNotifierProvider(create: (_) => SettingsProvider()),
       ],
       child: MaterialApp(
         title: 'Budget App',
